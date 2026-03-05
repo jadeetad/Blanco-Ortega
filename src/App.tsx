@@ -155,7 +155,7 @@ const App = () => {
     <div className="App">
       {/* Navigation */}
       <nav>
-        <a href="#" className="nav-logo">
+        <a href="#hero" className="nav-logo">
           Blanco Ortega
           <span>For The Elite Man</span>
         </a>
@@ -169,9 +169,10 @@ const App = () => {
             <span>Cart</span>
             <span className="cart-count">{cart.length}</span>
           </div>
-          <a href="#" className="sign-in" onClick={(e) => { e.preventDefault(); openModal(); }}>
+           <a href="#signin" className="sign-in" onClick={(e) => { e.preventDefault(); openModal(); }}>C
             {isSignedIn ? signedInName : 'Sign In'}
           </a>
+
         </div>
       </nav>
 
