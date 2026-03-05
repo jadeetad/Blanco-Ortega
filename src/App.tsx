@@ -40,7 +40,7 @@ const App = () => {
 
   // Cart functions
   const addToCart = (name: string, category: string) => {
-    if (cart.find(item => item.name === name)) {
+    if (cart.find(item => item.name === name && item.category === category)) {
       showToast('Already in order');
       return;
     }
@@ -69,6 +69,13 @@ const App = () => {
     setToast({ show: true, message });
     setTimeout(() => setToast({ show: false, message: '' }), 3000);
   };
+ // Auto-hide toast
+useEffect(() => {
+  if (!toast.show) return;
+
+  const timer = setTimeout(() => setToast({ show: false, message: '' }), 3000);
+  return () => clearTimeout(timer); // cleanup if another toast is shown before 3s
+}, [toast.show]);
 
   // Filter products
   const filterProducts = (category: string) => {
@@ -553,19 +560,43 @@ const Footer: React.FC<FooterProps> = ({ onFilterClick }) => {
         </div>
         <div>
           <div className="footer-col-title">Categories</div>
-          <ul className="footer-links">
-            <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToCatalogue('kaftan'); }}>Kaftans</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToCatalogue('ankara'); }}>Ankara</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToCatalogue('embroidery'); }}>Embroideries</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToCatalogue('shirt'); }}>Shirts</a></li>
-          </ul>
+         <ul className="footer-categories">
+  <li onClick={() => scrollToCatalogue('all')}>All</li>
+  <li onClick={() => scrollToCatalogue('kaftan')}>Kaftans</li>
+  <li onClick={() => scrollToCatalogue('ankara')}>Ankara</li>
+  <li onClick={() => scrollToCatalogue('embroidery')}>Embroideries</li>
+  <li onClick={() => scrollToCatalogue('caps')}>Caps</li>
+  <li onClick={() => scrollToCatalogue('shackets')}>Shackets</li>
+  <li onClick={() => scrollToCatalogue('trousers')}>Trousers</li>
+  <li onClick={() => scrollToCatalogue('shirt')}>Shirts</li>
+</ul> 
         </div>
         <div>
           <div className="footer-col-title">Contact</div>
           <ul className="footer-links">
-            <li><a>WhatsApp</a></li>
-            <li><a>Instagram</a></li>
-            <li><a>hello@blancoortega.com</a></li>
+          <li>
+  <a 
+    href="https://wa.me/2348065145575" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    WhatsApp
+  </a>
+</li>
+          <li>
+  <a 
+    href="https://www.instagram.com/blancoortega_?igsh=cDJwa25pNzJzam43" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    Instagram
+  </a>
+</li>
+           <li>
+  <a href="mailto:blancoetaduovie@gmail.com">
+    blancoetaduovie@gmail.com
+  </a>
+</li>
           </ul>
         </div>
       </div>

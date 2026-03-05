@@ -1121,4 +1121,18 @@ footer {
   .cart-drawer {
     width: 100%;
   }
+  .footer-categories li{
+  list-style: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #444;
+  transition: all 0.3s ease;
+}
+
+.footer-categories li:hover{
+  color: #000;
+  transform: translateX(4px);
+}
 }
