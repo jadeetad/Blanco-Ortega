@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/blanco-ortega-react/static/css/main.7ce9467c.css",
+    "main.js": "/blanco-ortega-react/static/js/main.d0adad0c.js",
+    "index.html": "/blanco-ortega-react/index.html",
+    "main.7ce9467c.css.map": "/blanco-ortega-react/static/css/main.7ce9467c.css.map",
+    "main.d0adad0c.js.map": "/blanco-ortega-react/static/js/main.d0adad0c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7ce9467c.css",
+    "static/js/main.d0adad0c.js"
+  ]
+}
